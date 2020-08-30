@@ -26,7 +26,6 @@ function Home({data}) {
     setTerm(e.target.value);
   }
 
-  console.log('data', data);
   const handleList = (data) => {
     router.push('/search/[term]', `/search/${data.category}`);
   }

@@ -9,25 +9,36 @@ const useStyle = makeStyles({
   }
 })
 
-export function Details(props) {
-  const {data} = props;
+export function DetailsCard(props) {
+  const {data, isAmp} = props;
   const classes = useStyle();
   return (
     <Grid item xs={12} container direction='row' className={classes.container}>
       <Grid item xs={12}>
-        <Typography component='h3'>{data[0].title}</Typography>
+        <Typography component='h3'>{data.title}</Typography>
       </Grid>
-      <Grid item xs={12} sm={12} md={6} lg={6}>
-        <img width='100%' src={data[0].image} alt={data[0].title} />
-      </Grid>
-      <Grid  className={classes.details}>
-        <Typography component='h2'>Description: </Typography>
-        &emsp;<Typography>{data[0]?.description}</Typography>
-        <Grid container direction='row'>
-          <Typography>Price: </Typography>
-          &emsp;<Typography>{data[0]?.price}</Typography>
+      {isAmp ? (<Grid item xs={12} sm={12} md={6} lg={6}>
+        <img width='100%' src={data.image} alt={data.title} />
+      </Grid>) : (<Grid item xs={12} sm={12} md={6} lg={6}>
+        <img width='250px' src={data.image} alt={data.title} />
+      </Grid>)}
+      <Grid container direction='row' alignItems='center' className={classes.details}>
+        <Grid item xs={12} sm={2} md={1} lg={1}>
+          <Typography component='h2'>Price: </Typography>
+        </Grid>
+        <Grid item xs={12} sm={9} md={10} lg={11}>
+        &emsp;<Typography>{data?.price}</Typography>
         </Grid>
       </Grid>
-    </Grid>
+      <Grid container direction='row' alignItems='center' className={classes.details}>
+
+        <Grid item xs={12} sm={2} md={1} lg={1}>
+          <Typography component='h2'>Description: </Typography>
+        </Grid>
+        <Grid item xs={12} sm={9} md={10} lg={11}>
+        &emsp;<Typography>{data?.description}</Typography>
+        </Grid>
+      </Grid>
+   </Grid>
   )
 }

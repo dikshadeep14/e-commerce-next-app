@@ -1,21 +1,27 @@
-import {useRouter} from "next/router";
+import React from 'react';
+import { useAmp } from 'next/amp';
+import {Grid} from "@material-ui/core"
+import {DetailsCard} from '../../layouts/Details'; 
 
-function Details({props}) {
-  console.log('props in details', props)
+
+export const config = { amp: 'hybrid' };
+
+function Details({data}) {
+  const isAmp = useAmp();
   return(
-      <div>
-        <Details data={props?.data} />
-      </div>
+      <Grid>
+        <DetailsCard isAmp={isAmp} data={data[0]}/>
+      </Grid>
   )
 }
 
-Details.getInitialProps = async (ctx) => {
-  console.log('ctx', ctx);
-  const res = await fetch(`http://localhost:3000/api/detail/19`);
+export default Details;
+
+export const getServerSideProps = async (ctx) => {
+  const {query} = ctx;
+  const res = await fetch(`http://localhost:3000/api/detail/${query.id}`);
   const data = await res.json();
   return {
     props: {data}
   }
 }
-
-export default Details;
