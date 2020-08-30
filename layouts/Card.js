@@ -3,9 +3,7 @@ import {Grid, Typography, makeStyles} from "@material-ui/core";
 
 const useStyle = makeStyles({
   container: {
-    margin: '10px 0',
-    // border: '2px solid teal',
-    
+    margin: '10px 0',    
   },
   details: {
     cursor: 'pointer',
@@ -26,11 +24,11 @@ export function Card(props) {
           
         </Grid>
         <Grid className={classes.details}>
-          <Typography>{category?.category}</Typography>
+          <Typography justify='center'>{category?.category}</Typography>
           <Typography>{category?.title}</Typography>
         </Grid>
-        <Grid className={classes.details} style={{padding: 0}}>
-          {category?.price && <Typography>${category?.price}</Typography>}
+        <Grid className={classes.details} container direction='row' justify='center' style={{padding: 0}}>
+          {category?.price && <Typography justify='center'>${category?.price}</Typography>}
         </Grid>
       </Grid>
   )

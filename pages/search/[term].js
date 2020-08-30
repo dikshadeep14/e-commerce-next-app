@@ -13,23 +13,19 @@ function Search({props}) {
     }
   })
   const handleCard = (x) => {
-    console.log('x.....', x);
-    e.preventDefault();
     router.push('/details/[term]', `/details/${x}`);
   }
-  console.log('x..... in search page');
+
   const Styles = useStyle();
   return (
     <div className="container">
       <h2 className="title">Trek Cycles</h2>
       <SearchBox />
       <Grid container direction='row'>
-        {console.log('outside map.....')}
         {props?.data?.map((x, i) => {
           return(
         
         <Grid onClick={() => handleCard(x.id)} item xs={12} sm={6} md={4} lg={3} className={Styles['card-container']} key={i}>
-         {console.log('inside map.....')}
             <Card category={x} />
         </Grid>
         )})}
