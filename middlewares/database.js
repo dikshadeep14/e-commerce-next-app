@@ -2,7 +2,7 @@ import { MongoClient } from 'mongodb';
 import nextConnect from 'next-connect';
 const mongoose = require("mongoose");
 
-const uri = "mongodb+srv://admin:admin123@cluster0.ehwca.mongodb.net/e-com?retryWrites=true&w=majority";
+const uri = "mongodb+srv://xxxx:11123@cluster0.ehwca.mongodb.net/e-com?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
