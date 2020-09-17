@@ -18,8 +18,7 @@ function Home({data}) {
   const [term, setTerm] = useState("");
 
   const handleSearch = () => {
-    console.log('data', term);
-    // router.push('/search/[term]', `/search/${term}`);
+    router.push('/search/[term]', `/search/${term}`);
   }
 
   const handleChange = (e) => {
@@ -27,6 +26,7 @@ function Home({data}) {
   }
 
   const handleList = (data) => {
+    console.log(data);
     router.push('/search/[term]', `/search/${data.category}`);
   }
   const Styles = useStyle();

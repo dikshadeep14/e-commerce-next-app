@@ -20,7 +20,7 @@ export function Card(props) {
       <Grid item xs={12} container className={classes.container} justify="center">
         <Grid item xs={12} container display='row' justify='center'>
           
-            <img width='fit-content' height='250vh'   src={category.image} alt='Cycle' />
+            <img width='250px' height='250vh'   src={category.image} alt='Cycle' />
           
         </Grid>
         <Grid className={classes.details}>

@@ -20,7 +20,7 @@ function Search({props}) {
   return (
     <div className="container">
       <h2 className="title">Trek Cycles</h2>
-      <SearchBox />
+      {/* <SearchBox /> */}
       <Grid container direction='row'>
         {props?.data?.map((x, i) => {
           return(

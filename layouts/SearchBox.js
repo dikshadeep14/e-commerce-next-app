@@ -32,7 +32,7 @@ export default function SearchBox(props) {
         value={value}
         onChange={handleChange}
       />
-      <IconButton type="submit" onClick={() => handleSearch} className={classes.iconButton} aria-label="search">
+      <IconButton type="button" onClick={(e) => handleSearch(e)} className={classes.iconButton} aria-label="search">
         <SearchIcon />
       </IconButton>
     </Paper>
